@@ -85,7 +85,7 @@ int read_line(char **lineptr, size_t *n, FILE *file)
 	}
 
 	*n += buffer_size - 1;
-	*lineptr = (char *)realloc(*lineptr, *n);
+	char *new_ptr = (char *)realloc(*lineptr, *n);
 
 	if (*lineptr == NULL)
 	{

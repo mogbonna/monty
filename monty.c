@@ -59,6 +59,7 @@ int read_line(char **lineptr, size_t *n, FILE *file)
 {
 	const int buffer_size = 128;
 	size_t len;
+	char *new_ptr;
 
 	if (*lineptr == NULL)
 	{
@@ -85,14 +86,14 @@ int read_line(char **lineptr, size_t *n, FILE *file)
 	}
 
 	*n += buffer_size - 1;
-	char *new_ptr = (char *)realloc(*lineptr, *n);
+	new_ptr = (char *)realloc(*lineptr, *n);
 
 	if (*lineptr == NULL)
 	{
 		fprintf(stderr, "Memory reallocation error\n");
 		exit(EXIT_FAILURE);
 	}
-	*lineptr = new_ptr:
+	*lineptr = new_ptr;
 
 	return (read_line(lineptr, n, file));
 }

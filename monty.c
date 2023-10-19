@@ -46,6 +46,15 @@ void read_file(FILE *file)
 	free(lineprt);
 }
 
+/**
+ * read_line - Reads a line from the file and dynamically manages the buffer
+ * @lineptr: A pointer to a pointer to the line buffer
+ * @n: A pointer to the size of the buffer
+ * @file: A pointer to the input file
+ *
+ * Return: 1 if a line is successfully read, 0 if end of file is reached
+ */
+
 int read_line(char **lineptr, size_t *n, FILE *file)
 {
 	const int buffer_size = 128;
@@ -55,24 +64,24 @@ int read_line(char **lineptr, size_t *n, FILE *file)
 	{
 		*n = buffer_size;
 		*lineptr = (char *)malloc(buffer_size * sizeof(char));
-		
+
 		if (*lineptr == NULL)
 		{
 			fprintf(stderr, "Memory allocation error\n");
 			exit(EXIT_FAILURE);
 		}
 	}
-	
+
 	if (fgets(*lineptr, buffer_size, file) == NULL)
 	{
-		return 0;
+		return (0);
 	}
-	
+
 	len = strlen(*lineptr);
 	if ((*lineptr)[len - 1] == '\n')
 	{
 		(*lineptr)[len - 1] = '\0';
-		return 1;
+		return (1);
 	}
 
 	*n += buffer_size - 1;
@@ -83,7 +92,7 @@ int read_line(char **lineptr, size_t *n, FILE *file)
 		fprintf(stderr, "Memory reallocation error\n");
 		exit(EXIT_FAILURE);
 	}
-	return read_line(lineptr, n, file);
+	return (read_line(lineptr, n, file));
 }
 
 /**

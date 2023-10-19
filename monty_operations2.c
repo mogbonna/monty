@@ -79,7 +79,8 @@ void do_nothing(stack_t **actual_head, unsigned int line_number)
 void sub_stack(stack_t **actual_head, unsigned int line_number)
 {
 	stack_t *tmp_node = *actual_head;
-	int count, tmp_value = 0;
+	int count = 0;
+	int tmp_value = 0;
 
 	while (tmp_node)
 	{
@@ -107,7 +108,8 @@ void sub_stack(stack_t **actual_head, unsigned int line_number)
 void div_stack(stack_t **actual_head, unsigned int line_number)
 {
 	stack_t *tmp_node = *actual_head;
-	int count, tmp_value = 0;
+	int count = 0;
+	int tmp_value = 0;
 
 	while (tmp_node)
 	{

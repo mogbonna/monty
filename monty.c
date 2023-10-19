@@ -92,6 +92,8 @@ int read_line(char **lineptr, size_t *n, FILE *file)
 		fprintf(stderr, "Memory reallocation error\n");
 		exit(EXIT_FAILURE);
 	}
+	*lineptr = new_ptr:
+
 	return (read_line(lineptr, n, file));
 }
 
